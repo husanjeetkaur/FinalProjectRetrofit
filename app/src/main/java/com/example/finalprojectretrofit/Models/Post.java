@@ -1,33 +1,29 @@
 package com.example.finalprojectretrofit.Models;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Post {
 
-    @SerializedName("Email")
-    private String email;
 
-    @SerializedName("Password")
-    private int password;
+    private String Email;
+    private int Password;
 
     public Post(String email, int password) {
-        this.email = email;
-        this.password = password;
+        Email = email;
+        Password = password;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
     public int getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(int password) {
-        this.password = password;
+        Password = password;
     }
 }

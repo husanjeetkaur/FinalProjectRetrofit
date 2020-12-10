@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txt = findViewById(R.id.txt);
-
         createPost();
+        getPost();
 
     }
 
     public void createPost(){
-        Post post = new Post("email.gmail.com", 7755);
+        Post post = new Post("email@gmail.com", 7755);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -50,16 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 Post postResponse =  response.body();
 
                 String content ="";
+                content += "Code :" +response.code() + "\n";
                 content += "Email: " +post.getEmail()+ "\n";
-                content += "Password: " +post.getPassword()+ "\n\n";
+                content += "Password: " +post.getPassword()+ "\n";
 
                 txt.append(content);
             }
 
             @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                txt.setText(t.getMessage());
-            }
+            public void onFailure(Call<Post> call, Throwable t) { }
         });
     }
 
